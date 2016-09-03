@@ -5,6 +5,7 @@
     %tr
       %th Patient
       %th Doctor
+      %th grade
       %th Date and time
       %th Intevention
       %th Indication
@@ -14,8 +15,9 @@
   %tbody
     - @anaesthetics.each do |anaesthetic|
       %tr
-        %td= anaesthetic.patient.first_name
-        %td= anaesthetic.doctor.first_name
+        %td= anaesthetic.patient.full_name
+        %td= anaesthetic.doctor.full_name
+        %td= anaesthetic.doctor.grade
         %td= anaesthetic.date_and_time
         %td= anaesthetic.intevention
         %td= anaesthetic.indication
