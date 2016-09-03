@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor: one
+  patient: one
+  mobilising: false
+  sensory_disturbance: false
+  motor_weakness: false
+  passed_urine: false
+  headache: false
+  pain: false
+  awareness_GA: false
+
+two:
+  doctor: two
+  patient: two
+  mobilising: false
+  sensory_disturbance: false
+  motor_weakness: false
+  passed_urine: false
+  headache: false
+  pain: false
+  awareness_GA: false

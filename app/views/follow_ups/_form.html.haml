@@ -1,0 +1,16 @@
+= simple_form_for(@follow_up) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :doctor, label_method: :full_name
+    = f.association :patient,label_method: :full_name
+    = f.input :mobilising
+    = f.input :sensory_disturbance
+    = f.input :motor_weakness
+    = f.input :passed_urine
+    = f.input :headache
+    = f.input :pain
+    = f.input :awareness_GA
+
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'

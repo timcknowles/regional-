@@ -1,0 +1,2 @@
+json.extract! follow_up, :id, :doctor_id, :patient_id, :mobilising, :sensory_disturbance, :motor_weakness, :passed_urine, :headache, :pain, :awareness_GA, :created_at, :updated_at
+json.url follow_up_url(follow_up, format: :json)

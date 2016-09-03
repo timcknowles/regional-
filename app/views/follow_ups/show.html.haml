@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Doctor:
+  = @follow_up.doctor
+%p
+  %b Patient:
+  = @follow_up.patient
+%p
+  %b Mobilising:
+  = @follow_up.mobilising
+%p
+  %b Sensory disturbance:
+  = @follow_up.sensory_disturbance
+%p
+  %b Motor weakness:
+  = @follow_up.motor_weakness
+%p
+  %b Passed urine:
+  = @follow_up.passed_urine
+%p
+  %b Headache:
+  = @follow_up.headache
+%p
+  %b Pain:
+  = @follow_up.pain
+%p
+  %b Awareness ga:
+  = @follow_up.awareness_GA
+
+= link_to 'Edit', edit_follow_up_path(@follow_up)
+\|
+= link_to 'Back', follow_ups_path

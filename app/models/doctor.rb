@@ -2,6 +2,9 @@ class Doctor < ApplicationRecord
   has_many :anaesthetics
   has_many :patients, through: :anaesthetics
 
+  has_many :follow_ups
+  has_many :patients, through: :follow_ups
+
   # Getter
   def full_name
     [first_name, last_name].join(' ')
