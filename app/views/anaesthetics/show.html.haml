@@ -1,0 +1,25 @@
+%p#notice= notice
+%p
+  %strong Doctor:
+  = @anaesthetic.doctor.first_name
+%p
+  %strong Patient:
+  = @anaesthetic.patient.first_name
+%p
+  %strong Date and time:
+  = @anaesthetic.date_and_time
+%p
+  %strong Intevention:
+  = @anaesthetic.intevention
+%p
+  %strong Indication:
+  = @anaesthetic.indication
+%p
+  %strong No attempts:
+  = @anaesthetic.no_attempts
+%p
+  %strong Complications:
+  = @anaesthetic.complications
+= link_to 'Edit', edit_anaesthetic_path(@anaesthetic)
+|
+= link_to 'Back', anaesthetics_path

@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong First name:
+  = @doctor.first_name
+%p
+  %strong Last name:
+  = @doctor.last_name
+%p
+  %strong Grade:
+  = @doctor.grade
+= link_to 'Edit', edit_doctor_path(@doctor)
+|
+= link_to 'Back', doctors_path
