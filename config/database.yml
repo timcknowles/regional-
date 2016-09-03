@@ -83,3 +83,5 @@ production:
   database: regional_production
   username: regional
   password: <%= ENV['REGIONAL_DATABASE_PASSWORD'] %>
+
+host: localhost
