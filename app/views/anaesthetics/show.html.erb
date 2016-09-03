@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @anaesthetic.doctor.first_name %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @anaesthetic.patient.first_name %>
+</p>
+
+<p>
+  <strong>Date and time:</strong>
+  <%= @anaesthetic.date_and_time %>
+</p>
+
+<p>
+  <strong>Intevention:</strong>
+  <%= @anaesthetic.intevention %>
+</p>
+
+<p>
+  <strong>Indication:</strong>
+  <%= @anaesthetic.indication %>
+</p>
+
+<p>
+  <strong>No attempts:</strong>
+  <%= @anaesthetic.no_attempts %>
+</p>
+
+<p>
+  <strong>Complications:</strong>
+  <%= @anaesthetic.complications %>
+</p>
+
+<%= link_to 'Edit', edit_anaesthetic_path(@anaesthetic) %> |
+<%= link_to 'Back', anaesthetics_path %>

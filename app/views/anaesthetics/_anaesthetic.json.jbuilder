@@ -1,0 +1,2 @@
+json.extract! anaesthetic, :id, :doctor_id, :patient_id, :date_and_time, :intevention, :indication, :no_attempts, :complications, :created_at, :updated_at
+json.url anaesthetic_url(anaesthetic, format: :json)
