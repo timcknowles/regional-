@@ -1,4 +1,7 @@
-= form_for(anaesthetic) do |f|
+= simple_form_for(anaesthetic, html: { class: 'form-horizontal' }) do |f|
+
+
+
   - if anaesthetic.errors.any?
     #error_explanation
       %h2
@@ -8,25 +11,23 @@
         - anaesthetic.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :patient_first_name
-    = f.select :patient_id, Patient.all.collect { |p| [ p.full_name, p.id ] }
+
+    = f.association :patient, label_method: :full_name
   .field
-    = f.label :doctor_full_name
-    = f.select :doctor_id, Doctor.all.collect { |p| [ p.full_name, p.id ] }
+    = f.association :doctor, label_method: :full_name
   .field
-    = f.label :date_and_time
-    = f.datetime_select :date_and_time
+    = f.input :date_and_time
   .field
-    = f.label :intevention
-    = f.text_field :intevention
+    = f.input :intevention, collection:["EPIDURAL", "EPIDURAL TOP UP" "CSE", "SPINAL","INTRATHECAL CATHETER", "GA", "PCA"]
+
   .field
-    = f.label :indication
-    = f.text_field :indication
+    = f.input :indication, collection:["LABOUR", "ELSC", "EMCS","REPAIR OF TEAR", "EMCS","REPAIR OF TEAR", "MANUAL REMOVAL", "CERVICAL SUTURE REMOVAL", "EMCS","REPAIR OF TEAR", "CERVICAL SUTURE INSERTION" ]
+
   .field
-    = f.label :no_attempts
-    = f.number_field :no_attempts
+    = f.input :no_attempts, collection: 1..5
+
   .field
-    = f.label :complications
-    = f.text_field :complications
+    = f.input :complications, collection:["BONEY OBSTRUCTION", "BLOOD IN CATHETER", "DURAL PUNCTURE"]
+
   .actions
-    = f.submit
+    = f.submit nil, label:'Save', :class => 'btn btn-primary'
