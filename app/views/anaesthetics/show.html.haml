@@ -26,7 +26,7 @@
 %table.table.table-striped
   %thead
     %tr
-      %th Doctor following up
+      %th Doctor
       %th Mobilising
       %th Sensory disturbance
       %th Motor weakness
@@ -53,7 +53,7 @@
 = simple_form_for FollowUp.new do |f|
 
   = f.hidden_field :patient_id, value: @anaesthetic.patient_id
-  = f.association :doctor, label_method: :full_name
+  = f.association :doctor, label_method: :full_name,  :label => "Doctor following up:"
   = f.input :mobilising
   = f.input :sensory_disturbance
   = f.input :motor_weakness
@@ -62,7 +62,8 @@
   = f.input :pain
   = f.input :awareness_GA
 
-  %input{:type => "submit"}
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
 
 = link_to 'Edit', edit_patient_anaesthetic_path(@patient, @anaesthetic)
 |

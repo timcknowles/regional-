@@ -25,7 +25,7 @@
     = f.input :no_attempts, collection: 1..5
 
   .field
-    = f.input :complications, collection:["BONEY OBSTRUCTION", "BLOOD IN CATHETER", "DURAL PUNCTURE"]
+    = f.input :complications, collection:["NONE","BONEY OBSTRUCTION", "BLOOD IN CATHETER", "DURAL PUNCTURE"]
 
   .actions
     = f.submit nil, label:'Save', :class => 'btn btn-primary'
