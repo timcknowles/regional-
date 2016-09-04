@@ -5,6 +5,9 @@ class Patient < ApplicationRecord
   has_many :follow_ups
   has_many :doctors, through: :follow_ups
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   # Getter
   def full_name
     [first_name, last_name].join(' ')
