@@ -1,5 +1,5 @@
 %h1 Editing Anaesthetic
 = render 'form', anaesthetic: @anaesthetic
-= link_to 'Show', @anaesthetic
+= link_to 'Show', [@patient, @anaesthetic]
 |
-= link_to 'Back', anaesthetics_path
+= link_to 'Back', patient_anaesthetics_path(@patient)

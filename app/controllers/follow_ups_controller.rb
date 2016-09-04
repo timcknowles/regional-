@@ -28,7 +28,7 @@ class FollowUpsController < ApplicationController
 
     respond_to do |format|
       if @follow_up.save
-        format.html { redirect_to @follow_up, notice: 'Follow up was successfully created.' }
+        format.html { redirect_to :back, notice: 'Follow up was successfully created.' }
         format.json { render :show, status: :created, location: @follow_up }
       else
         format.html { render :new }

@@ -16,4 +16,6 @@ class Patient < ApplicationRecord
     self.first_name = split.first
     self.last_name = split.last
   end
+
+
 end

@@ -20,6 +20,17 @@
 %p
   %strong Complications:
   = @anaesthetic.complications
-= link_to 'Edit', edit_anaesthetic_path(@anaesthetic)
+
+- @anaesthetic.patient.follow_ups.each do |follow_up|
+  %p= follow_up.mobilising
+
+= simple_form_for FollowUp.new do |f|
+  = f.check_box :mobilising
+  = f.text_field :patient_id, value: @anaesthetic.patient_id
+  = f.text_field :doctor_id, value: @anaesthetic.doctor_id
+
+  %input{:type => "submit"}
+
+= link_to 'Edit', edit_patient_anaesthetic_path(@patient, @anaesthetic)
 |
-= link_to 'Back', anaesthetics_path
+= link_to 'Back', patient_anaesthetics_path(@patient)

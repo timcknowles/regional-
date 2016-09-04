@@ -1,6 +1,4 @@
-= simple_form_for(anaesthetic, html: { class: 'form-horizontal' }) do |f|
-
-
+= simple_form_for([@patient, anaesthetic], html: { class: 'form-horizontal' }) do |f|
 
   - if anaesthetic.errors.any?
     #error_explanation
