@@ -1,10 +1,12 @@
 %p#notice= notice
+
+
 %p
   %strong Doctor:
-  = @anaesthetic.doctor.first_name
+  = @anaesthetic.doctor.full_name
 %p
   %strong Patient:
-  = @anaesthetic.patient.first_name
+  = @anaesthetic.patient.full_name
 %p
   %strong Date and time:
   = @anaesthetic.date_and_time
@@ -21,13 +23,44 @@
   %strong Complications:
   = @anaesthetic.complications
 
-- @anaesthetic.patient.follow_ups.each do |follow_up|
-  %p= follow_up.mobilising
+%table.table.table-striped
+  %thead
+    %tr
+      %th Doctor following up
+      %th Mobilising
+      %th Sensory disturbance
+      %th Motor weakness
+      %th Passed urine
+      %th Headache
+      %th Pain
+      %th Awareness ga
+
+
+  %tbody
+    - @anaesthetic.patient.follow_ups.each do |follow_up|
+      %tr
+        %td= follow_up.doctor.full_name
+        %td= follow_up.mobilising
+        %td= follow_up.sensory_disturbance
+        %td= follow_up.motor_weakness
+        %td= follow_up.passed_urine
+        %td= follow_up.headache
+        %td= follow_up.pain
+        %td= follow_up.awareness_GA
+
+
 
 = simple_form_for FollowUp.new do |f|
-  = f.check_box :mobilising
-  = f.text_field :patient_id, value: @anaesthetic.patient_id
-  = f.text_field :doctor_id, value: @anaesthetic.doctor_id
+
+  = f.hidden_field :patient_id, value: @anaesthetic.patient_id
+  = f.association :doctor, label_method: :full_name
+  = f.input :mobilising
+  = f.input :sensory_disturbance
+  = f.input :motor_weakness
+  = f.input :passed_urine
+  = f.input :headache
+  = f.input :pain
+  = f.input :awareness_GA
 
   %input{:type => "submit"}
 
