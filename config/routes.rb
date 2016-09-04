@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :follow_ups
-
+  resources :anaesthetics
   resources :doctors
   resources :patients do
     resources :anaesthetics

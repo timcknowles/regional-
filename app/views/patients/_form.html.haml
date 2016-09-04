@@ -1,4 +1,4 @@
-= form_for(patient) do |f|
+= simple_form_for(patient) do |f|
   - if patient.errors.any?
     #error_explanation
       %h2
@@ -8,19 +8,19 @@
         - patient.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :first_name
-    = f.text_field :first_name
+    = f.input :first_name
+
   .field
-    = f.label :last_name
-    = f.text_field :last_name
+    = f.input :last_name
+
   .field
-    = f.label :DOB
-    = f.text_field :DOB
+    = f.input :DOB
+
   .field
-    = f.label :NHS_No
-    = f.text_field :NHS_No
+    = f.input :NHS_No
+
   .field
-    = f.label :MRN
-    = f.text_field :MRN
+    = f.input :MRN
+
   .actions
-    = f.submit
+    = f.submit nil, label:'Save', :class => 'btn btn-primary'
