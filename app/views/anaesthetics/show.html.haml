@@ -9,7 +9,7 @@
   = @anaesthetic.patient.full_name
 %p
   %strong Date and time:
-  = @anaesthetic.date_and_time
+  = @anaesthetic.date_and_time.strftime("%m/%d/%Y %H:%M")
 %p
   %strong Intevention:
   = @anaesthetic.intevention

@@ -1,5 +1,6 @@
 %p#notice= notice
 %h1 Anaesthetics
+
 %table.table.table-striped
   %thead
     %tr
@@ -21,7 +22,7 @@
         %td= anaesthetic.patient.full_name
         %td= anaesthetic.doctor.full_name
         %td= anaesthetic.doctor.grade
-        %td= anaesthetic.date_and_time
+        %td= anaesthetic.date_and_time.strftime("%m/%d/%Y %H:%M")
         %td= anaesthetic.intevention
         %td= anaesthetic.indication
         %td= anaesthetic.no_attempts
