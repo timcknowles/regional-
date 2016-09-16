@@ -1,7 +1,7 @@
 %p#notice= notice
 %h1 Anaesthetics
 
-%table.table.table-striped
+%table.table.table-striped.table-responsive
   %thead
     %tr
       %th Patient
@@ -28,7 +28,7 @@
         %td= anaesthetic.no_attempts
         %td= anaesthetic.complications
         %td= link_to 'Follow Up', [@patient, anaesthetic], :class => 'btn btn-mini btn-success'
-        %td= link_to 'Edit', edit_patient_anaesthetic_path(@patient, anaesthetic), :class => 'btn btn-mini btn-warning'
+        -#%td= link_to 'Edit', edit_patient_anaesthetic_path(@patient, anaesthetic), :class => 'btn btn-mini btn-warning'
         %td= link_to 'Delete', [@patient, anaesthetic], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
 %br/
-= link_to 'New Anaesthetic', new_patient_anaesthetic_path
+= link_to 'New Anaesthetic', new_anaesthetic_path
