@@ -20,6 +20,8 @@ class AnaestheticsController < ApplicationController
 
   # GET /anaesthetics/1/edit
   def edit
+    
+
   end
 
   # POST /anaesthetics
