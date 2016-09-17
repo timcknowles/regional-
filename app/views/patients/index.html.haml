@@ -1,5 +1,15 @@
+= form_tag patients_path, :method => 'get' do
+  %p
+    = text_field_tag :first_name, params[:first_name]
+    = text_field_tag :last_name, params[:last_name]
+    = submit_tag "Search", :name => nil
+
+
 %p#notice= notice
 %h1 Patients
+
+
+
 %table.table.table-striped
   %thead
     %tr
@@ -7,7 +17,7 @@
       %th DOB:
       %th NHS NO:
       %th MRN
-      
+
       %th{:colspan => "3"}
   %tbody
     - @patients.each do |patient|
