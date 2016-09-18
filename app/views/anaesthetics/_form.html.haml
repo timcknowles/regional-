@@ -1,16 +1,10 @@
-= simple_form_for([@patient, anaesthetic], html: { class: 'form-horizontal' }) do |f|
+= simple_form_for([@patient, @anaesthetic], html: { class: 'form-horizontal' }) do |f|
+  = f.error_notification
+  -#.field
 
-  - if anaesthetic.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(anaesthetic.errors.count, "error")
-        prohibited this anaesthetic from being saved:
-      %ul
-        - anaesthetic.errors.full_messages.each do |message|
-          %li= message
+    -#= f.association :patient, label_method: :full_name
   .field
-
-    = f.association :patient, label_method: :full_name
+    = f.input :date_and_time
   .field
     = f.association :doctor, label_method: :full_name
   .field

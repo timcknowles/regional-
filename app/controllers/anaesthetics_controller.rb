@@ -1,11 +1,20 @@
 class AnaestheticsController < ApplicationController
+
   before_action :set_patient
-  before_action :set_anaesthetic, only: [:show, :edit, :update, :destroy]
+  before_action :set_anaesthetic, except: [:index, :new, :create]
+
 
   # GET /anaesthetics
   # GET /anaesthetics.json
   def index
-    @anaesthetics = @patient.anaesthetics
+    #@anaesthetics = Anaesthetic.all
+    #@anaesthetics =@patient.anaesthetics
+
+    if params[:patient_id].present?
+        @anaesthetics =@patient.anaesthetics
+    else
+        @anaesthetics = Anaesthetic.all
+    end
   end
 
   # GET /anaesthetics/1
@@ -20,6 +29,8 @@ class AnaestheticsController < ApplicationController
 
   # GET /anaesthetics/1/edit
   def edit
+
+
   end
 
   # POST /anaesthetics
@@ -29,8 +40,8 @@ class AnaestheticsController < ApplicationController
 
     respond_to do |format|
       if @anaesthetic.save
-        format.html { redirect_to [@patient, @anaesthetic], notice: 'Anaesthetic was successfully created.' }
-        format.json { render :show, status: :created, location: @anaesthetic }
+        format.html { redirect_to patient_anaesthetics_url(@patient), notice: 'Anaesthetic was successfully created.' }
+        format.json { render :index, status: :created, location: @anaesthetic }
       else
         format.html { render :new }
         format.json { render json: @anaesthetic.errors, status: :unprocessable_entity }
@@ -65,11 +76,11 @@ class AnaestheticsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anaesthetic
-      @anaesthetic = @patient.anaesthetics.find(params[:id])
+      @anaesthetic = @patient.anaesthetics.find(params[:id]) rescue Anaesthetic.find(params[:id])
     end
 
     def set_patient
-      @patient = Patient.find(params[:patient_id])
+      @patient = Patient.find(params[:patient_id]) rescue Patient.first rescue Anaesthetic.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

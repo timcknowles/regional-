@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903195938) do
+ActiveRecord::Schema.define(version: 20160918194704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160903195938) do
     t.boolean  "awareness_GA"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "comment"
+    t.datetime "date_and_time"
     t.index ["doctor_id"], name: "index_follow_ups_on_doctor_id", using: :btree
     t.index ["patient_id"], name: "index_follow_ups_on_patient_id", using: :btree
   end
