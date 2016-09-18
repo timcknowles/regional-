@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :doctors
   resources :patients do
     resources :anaesthetics
+    resources :follow_ups
+
+  
 
 
   end

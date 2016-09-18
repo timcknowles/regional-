@@ -1,11 +1,20 @@
 class AnaestheticsController < ApplicationController
-  before_action :set_patient, except: :index
-  before_action :set_anaesthetic, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_patient
+  before_action :set_anaesthetic, except: [:index, :new, :create]
+
 
   # GET /anaesthetics
   # GET /anaesthetics.json
   def index
-    @anaesthetics = Anaesthetic.all
+    #@anaesthetics = Anaesthetic.all
+    #@anaesthetics =@patient.anaesthetics
+
+    if params[:patient_id].present?
+        @anaesthetics =@patient.anaesthetics
+    else
+        @anaesthetics = Anaesthetic.all
+    end
   end
 
   # GET /anaesthetics/1
@@ -20,7 +29,7 @@ class AnaestheticsController < ApplicationController
 
   # GET /anaesthetics/1/edit
   def edit
-    
+
 
   end
 

@@ -19,8 +19,8 @@
   %tbody
     - @follow_ups.each do |follow_up|
       %tr
-        %td= follow_up.doctor
-        %td= follow_up.patient
+        %td= follow_up.doctor.full_name
+        %td= follow_up.patient.full_name
         %td= follow_up.mobilising
         %td= follow_up.sensory_disturbance
         %td= follow_up.motor_weakness

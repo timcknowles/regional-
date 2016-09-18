@@ -1,13 +1,27 @@
+
+.page-header
+  %table.table.table-striped.table-responsive
+
+    %thead
+      %tr
+
+        %th  Name: #{@patient.full_name}
+        %th  DOB: #{@patient.DOB}
+        %th  NHS Number: #{@patient.NHS_No}
+        %th  MRN: #{@patient.MRN}
+
+
+
 %p#notice= notice
 %h1 Anaesthetics
 
 %table.table.table-striped.table-responsive
   %thead
     %tr
-      %th Patient
+      %th Date and time
+      -#%th Patient
       %th Doctor
       %th grade
-      %th Date and time
       %th Intervention
       %th Indication
       %th Attempts
@@ -19,10 +33,11 @@
   %tbody
     - @anaesthetics.each do |anaesthetic|
       %tr
-        %td= anaesthetic.patient.full_name
+        %td= anaesthetic.date_and_time.strftime("%m/%d/%Y %H:%M")
+        -#%td= anaesthetic.patient.full_name
         %td= anaesthetic.doctor.full_name
         %td= anaesthetic.doctor.grade
-        %td= anaesthetic.date_and_time.strftime("%m/%d/%Y %H:%M")
+
         %td= anaesthetic.intevention
         %td= anaesthetic.indication
         %td= anaesthetic.no_attempts
@@ -31,4 +46,4 @@
         %td= link_to 'Edit', edit_anaesthetic_path(anaesthetic), :class => 'btn btn-mini btn-warning'
         %td= link_to 'Delete', [@patient, anaesthetic], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
 %br/
-= link_to 'New Anaesthetic', new_anaesthetic_path
+= link_to 'New Anaesthetic', new_patient_anaesthetic_path(@patient)
