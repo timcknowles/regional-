@@ -29,6 +29,7 @@
         %td= patient.NHS_No
         %td= patient.MRN
         %td= link_to 'create anaesthetic', patient_anaesthetics_path(patient_id: patient), :class => 'btn btn-mini btn-primary'
+        %td= link_to 'Follow Up', patient_follow_ups_path(patient_id: patient), :class => 'btn btn-mini btn-primary'
         %td= link_to 'Show', patient, :class => 'btn btn-mini btn-success'
         %td= link_to 'Edit', edit_patient_path(patient), :class => 'btn btn-mini btn-warning'
         %td= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
