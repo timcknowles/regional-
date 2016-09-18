@@ -40,8 +40,8 @@ class AnaestheticsController < ApplicationController
 
     respond_to do |format|
       if @anaesthetic.save
-        format.html { redirect_to [@patient, @anaesthetic], notice: 'Anaesthetic was successfully created.' }
-        format.json { render :show, status: :created, location: @anaesthetic }
+        format.html { redirect_to patient_anaesthetics_url(@patient), notice: 'Anaesthetic was successfully created.' }
+        format.json { render :index, status: :created, location: @anaesthetic }
       else
         format.html { render :new }
         format.json { render json: @anaesthetic.errors, status: :unprocessable_entity }

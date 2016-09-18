@@ -1,8 +1,10 @@
 = simple_form_for([@patient, @anaesthetic], html: { class: 'form-horizontal' }) do |f|
   = f.error_notification
-  .field
+  -#.field
 
-    = f.association :patient, label_method: :full_name
+    -#= f.association :patient, label_method: :full_name
+  .field
+    = f.input :date_and_time
   .field
     = f.association :doctor, label_method: :full_name
   .field

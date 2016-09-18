@@ -1,19 +1,19 @@
 = simple_form_for(patient) do |f|
   = f.error_notification
   .field
-    = f.input :first_name
+    = f.input :first_name,:label => "First Name:"
 
   .field
-    = f.input :last_name
+    = f.input :last_name,:label => "Last Name:"
 
   .field
-    = f.input :DOB
+    = f.input :DOB,:label => "DOB:"
 
   .field
-    = f.input :NHS_No
+    = f.input :NHS_No,:label => "NHS Number:"
 
   .field
-    = f.input :MRN
+    = f.input :MRN,:label => "MRN:"
 
   .actions
     = f.submit nil, label:'Save', :class => 'btn btn-primary'
