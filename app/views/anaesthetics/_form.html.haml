@@ -7,8 +7,7 @@
     = f.input :date_and_time
   .field
     = f.association :doctor, label_method: :full_name
-  .field
-    = f.input :date_and_time
+  
   .field
     = f.input :intevention, collection:["EPIDURAL", "EPIDURAL TOP UP", "CSE", "SPINAL","INTRATHECAL CATHETER", "GA", "PCA"]
 
