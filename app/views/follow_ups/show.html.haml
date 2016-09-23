@@ -1,11 +1,15 @@
 %p#notice= notice
 
 %p
+  %b Date and Time:
+  = @follow_up.date_and_time.strftime("%m/%d/%Y %H:%M")
+
+%p
   %b Doctor:
-  = @follow_up.doctor
+  = @follow_up.doctor.full_name
 %p
   %b Patient:
-  = @follow_up.patient
+  = @follow_up.patient.full_name
 %p
   %b Mobilising:
   = @follow_up.mobilising
@@ -27,6 +31,10 @@
 %p
   %b Awareness ga:
   = @follow_up.awareness_GA
+
+%p
+  %b Comments
+  = @follow_up.comment
 
 = link_to 'Edit', edit_follow_up_path(@follow_up)
 \|

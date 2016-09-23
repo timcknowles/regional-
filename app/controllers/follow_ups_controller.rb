@@ -1,6 +1,6 @@
 class FollowUpsController < ApplicationController
   before_action :set_patient
-  before_action :set_follow_up, only: [:show, :edit, :update, :destroy]
+  before_action :set_follow_up, except: [:index, :new, :create]
 
 
 
@@ -39,7 +39,7 @@ class FollowUpsController < ApplicationController
 
     respond_to do |format|
       if @follow_up.save
-        format.html { redirect_to [@patient, @follow_up], notice: 'Follow up was successfully created.' }
+        format.html { redirect_to patient_follow_ups_url(@patient), notice: 'Follow up was successfully created.' }
         format.json { render :show, status: :created, location: @follow_up }
       else
         format.html { render :new }
@@ -69,6 +69,8 @@ class FollowUpsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to patient_follow_ups_url(@patient), notice: 'Follow up was successfully destroyed.' }
       format.json { head :no_content }
+
+      #redirect_to article_url(@comment.article_id)
     end
   end
 
@@ -86,6 +88,6 @@ class FollowUpsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def follow_up_params
-      params.require(:follow_up).permit(:doctor_id, :patient_id, :mobilising, :sensory_disturbance, :motor_weakness, :passed_urine, :headache, :pain, :awareness_GA)
+      params.require(:follow_up).permit(:date_and_time, :comment, :doctor_id, :patient_id, :mobilising, :sensory_disturbance, :motor_weakness, :passed_urine, :headache, :pain, :awareness_GA)
     end
 end

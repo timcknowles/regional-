@@ -58,6 +58,7 @@ class DoctorsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
       format.json { head :no_content }
+      
     end
   end
 

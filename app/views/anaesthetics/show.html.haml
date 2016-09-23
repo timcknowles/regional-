@@ -23,7 +23,8 @@
   %strong Complications:
   = @anaesthetic.complications
 
-%table.table.table-striped
+
+-#%table.table.table-striped
   %thead
     %tr
       %th Doctor
@@ -50,7 +51,7 @@
 
 
 
-= simple_form_for FollowUp.new do |f|
+-#= simple_form_for FollowUp.new do |f|
 
   = f.hidden_field :patient_id, value: @anaesthetic.patient_id
   = f.association :doctor, label_method: :full_name,  :label => "Doctor following up:"
