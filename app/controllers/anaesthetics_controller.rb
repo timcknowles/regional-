@@ -1,5 +1,5 @@
 class AnaestheticsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_patient
   before_action :set_anaesthetic, except: [:index, :new, :create]
 
